@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         login.setOnClickListener(this);
         register.setOnClickListener(this);
+        skip.setOnClickListener(this);
     }
 
     @Override
@@ -30,6 +31,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
          if(v==register){
             Intent intent1=new Intent(getApplicationContext(),RegisterActivity.class);
+            startActivity(intent1);
+        }
+        if(v==skip){
+            Intent intent1=new Intent(getApplicationContext(),NevigationDrawer.class);
             startActivity(intent1);
         }
 

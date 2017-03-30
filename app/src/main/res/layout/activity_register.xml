@@ -29,9 +29,7 @@
             android:ems="10"
             android:hint="Date of birth"
             android:inputType="date"
-             />
-
-
+            android:onClick="setDate" />
 
         <EditText
             android:id="@+id/editText3"
