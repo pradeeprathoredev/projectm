@@ -17,7 +17,7 @@ import android.widget.Toast;
 public class RegisterActivity extends AppCompatActivity {
     DatePickerDialog datePickerDialog;
     private Calendar calendar;
-    EditText date,name,mobile;
+    EditText date,fname,lname,mobile;
     Button register;
     private int year, month, day;
 
@@ -31,7 +31,11 @@ public class RegisterActivity extends AppCompatActivity {
         year = calendar.get(Calendar.YEAR);
         month = calendar.get(Calendar.MONTH);
         day = calendar.get(Calendar.DAY_OF_MONTH);
-        date = (EditText) findViewById(R.id.editText2);
+        date = (EditText) findViewById(R.id.dob);
+        fname= (EditText) findViewById(R.id.firstname);
+        lname= (EditText) findViewById(R.id.lastname);
+        mobile= (EditText) findViewById(R.id.mobile);
+        register= (Button) findViewById(R.id.register);
 
 
         date.setOnClickListener(new View.OnClickListener() {

@@ -43,14 +43,22 @@
 
         <Button
             android:id="@+id/login"
-            android:layout_width="225dp"
+            android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="LOGIN" />
+            android:layout_weight="0.00"
+            android:background="@drawable/frontbutton"
+            android:shadowColor="#000000"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="0"
+            android:text="LOGIN"
+            android:textColor="#5b5353"
+            android:textSize="16sp" />
 
         <Button
             android:id="@+id/movereg"
-            android:layout_width="match_parent"
+            android:layout_width="353dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:background="@android:color/white"

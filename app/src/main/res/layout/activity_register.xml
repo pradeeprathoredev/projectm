@@ -13,7 +13,7 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/firstname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -22,7 +22,7 @@
             android:inputType="textPersonName" />
 
         <EditText
-            android:id="@+id/editText4"
+            android:id="@+id/lastname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -30,30 +30,34 @@
             android:inputType="textPersonName" />
 
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/dob"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:ems="10"
+            android:focusable="false"
             android:hint="Date of birth"
-            android:inputType="date"
-            android:focusable="false"/>
+            android:inputType="date" />
 
         <EditText
-            android:id="@+id/editText3"
+            android:id="@+id/mobile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:ems="10"
-            android:inputType="number"
-            android:hint="Mobile" />
+            android:hint="Mobile"
+            android:inputType="number" />
 
         <Button
-            android:id="@+id/button"
-            android:layout_width="189dp"
+            android:id="@+id/register"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
-            android:text="Button" />
+            android:background="@drawable/frontbutton"
+            android:shadowColor="#000000"
+            android:text="REGISTER"
+            android:textColor="#5b5353"
+            android:textSize="16sp" />
     </LinearLayout>
 </RelativeLayout>
