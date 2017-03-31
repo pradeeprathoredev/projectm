@@ -23,7 +23,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
-    EditText mobile, password;
+    EditText mob, pass;
     Button login, reg;
 
     public static final int CONNECTION_TIMEOUT = 10000;
@@ -35,8 +35,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        mobile = (EditText) findViewById(R.id.mobile);
-        password = (EditText) findViewById(R.id.password);
+        mob = (EditText) findViewById(R.id.mobile);
+        pass = (EditText) findViewById(R.id.password);
         login = (Button) findViewById(R.id.login);
         reg = (Button) findViewById(R.id.movereg);
         login.setOnClickListener(this);
@@ -50,13 +50,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if (v == login) {
 
 
-            String mob = mobile.getText().toString();
+            String mobile = mob.getText().toString();
             LoginRequest loginRequest = new LoginRequest();
-            loginRequest.setMobile(mob);
-            String pi = password.getText().toString();
-            loginRequest.setPin(pi);
-            new AsyncLogin().execute(mob, pi);
+            loginRequest.setMobile(mobile);
+            String pin = pass.getText().toString();
+            loginRequest.setPin(pin);
+            new AsyncLogin().execute(mobile, pin);
         } else if (v == reg) {
+
             Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
             startActivity(intent);
         }
@@ -119,6 +120,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             } catch (IOException e1) {
 
                 e1.printStackTrace();
+
                 return "exception";
             }
             try {
@@ -153,10 +155,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
 
         @Override
-        protected void onPostExecute(String s) {
-            super.onPostExecute(s);
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
             pdLoading.dismiss();
-
+             Toast.makeText(getApplicationContext(),""+result,Toast.LENGTH_LONG).show();
 
         }
     }

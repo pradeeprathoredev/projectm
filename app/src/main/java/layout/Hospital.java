@@ -1,6 +1,7 @@
 package layout;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,8 +9,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
+import com.example.ravi.healthcare.Appointment;
 import com.example.ravi.healthcare.R;
+import com.example.ravi.healthcare.SearchHospital;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -30,7 +34,9 @@ public class Hospital extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+////////--------------------
 
+    LinearLayout linearLayout;
     public Hospital() {
         // Required empty public constructor
     }
@@ -73,6 +79,15 @@ public class Hospital extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         getActivity().setTitle("Hospital");
+
+        linearLayout= (LinearLayout) getView().findViewById(R.id.host);
+        linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(),SearchHospital.class);
+                startActivity(intent);
+            }
+        });
     }
 
     // TODO: Rename method, update argument and hook method into UI event

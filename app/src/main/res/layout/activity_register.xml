@@ -16,10 +16,18 @@
             android:id="@+id/editText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="Name"
-            android:layout_marginTop="10dp"/>
+            android:hint="Frist Name"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/editText4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Last Name"
+            android:inputType="textPersonName" />
 
         <EditText
             android:id="@+id/editText2"
@@ -29,7 +37,7 @@
             android:ems="10"
             android:hint="Date of birth"
             android:inputType="date"
-            android:onClick="setDate" />
+            android:focusable="false"/>
 
         <EditText
             android:id="@+id/editText3"

@@ -7,6 +7,8 @@
     android:background="@drawable/healthcare_wallpeaper"
     tools:context="com.example.ravi.healthcare.MainActivity">
 
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -24,23 +26,29 @@
 
             <Button
                 android:id="@+id/login"
-                android:layout_width="157dp"
+                android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
-                android:layout_weight="1.16"
-                android:background="@android:color/holo_red_dark"
-                android:padding="10dp"
-                android:text="LOGIN" />
+                android:text="LOGIN"
+                android:textColor="#5b5353"
+                android:textSize="16sp"
+                android:background="@drawable/frontbutton"
+                android:shadowColor="#000000"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="0"
+                android:layout_weight="0.03" />
 
             <Button
                 android:id="@+id/register"
-                android:layout_width="174dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_weight="1.41"
-                android:background="@android:color/holo_red_dark"
-                android:padding="10dp"
-                android:text="REGISTER" />
+                android:layout_marginLeft="5dp"
+                android:text="REGISTER"
+                android:textColor="#5b5353"
+                android:textSize="16sp"
+                android:background="@drawable/frontbutton"
+                android:shadowColor="#000000"/>
         </LinearLayout>
 
         <Button
@@ -48,8 +56,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@android:color/holo_red_dark"
-            android:padding="10dp"
-            android:text="SKIP" />
+            android:text="SKIP"
+            android:textColor="#5b5353"
+            android:textSize="16sp"
+            android:background="@drawable/frontbutton"
+            android:shadowColor="#000000"/>
     </LinearLayout>
 </RelativeLayout>

@@ -1,5 +1,6 @@
 package layout;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,10 +8,12 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
 
+import com.example.ravi.healthcare.Appointment;
 import com.example.ravi.healthcare.R;
 
 import java.util.ArrayList;
@@ -34,7 +37,7 @@ public class Doctors extends Fragment  {
     private String mParam2;
 
     /////-----Serch bar
-
+LinearLayout linearLayout;
 
 
     public Doctors() {
@@ -81,7 +84,14 @@ public class Doctors extends Fragment  {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         getActivity().setTitle("Doctors");
-
+         linearLayout= (LinearLayout) getView().findViewById(R.id.drappo);
+        linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(),Appointment.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
