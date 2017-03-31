@@ -3,16 +3,32 @@ package com.example.ravi.healthcare;
 import android.annotation.TargetApi;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.graphics.Color;
 import android.icu.util.Calendar;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
+import  com.example.ravi.healthcare.model.Patient;
+import  com.example.ravi.healthcare.model.JasonParser;
+import  com.example.ravi.healthcare.model.Error;
+import com.loopj.android.http.JsonHttpResponseHandler;
+
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+
+import cz.msebera.android.httpclient.Header;
 
 public class RegisterActivity extends AppCompatActivity {
     DatePickerDialog datePickerDialog;
@@ -66,6 +82,55 @@ public class RegisterActivity extends AppCompatActivity {
 
 
     }
+
+    public void save(View view){
+        Patient patient=new Patient(fname.getText().toString(),lname.getText().toString(),mobile.getText().toString(),JasonParser.dateParser(date.getText().toString()));
+        String patientJson=JasonParser.getJSON(patient);
+        Log.d("Json Patient",patientJson);
+
+        RestCall.post(getApplicationContext(),"patients",patientJson,new JsonHttpResponseHandler(){
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                Log.d("",String.valueOf(response));
+
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable t, JSONArray response) {
+                Log.d("",String.valueOf(response));
+                ShowError(response);
+                Log.d("",String.valueOf(t));
+            }
+        });
+
+    }
+    void ShowError(JSONArray  response){
+        LinearLayout ll = (LinearLayout) findViewById(R.id.errorcontainer);
+        ll.removeAllViews();
+        ArrayList<Error> errors=new ArrayList<Error>();
+        errors = (ArrayList<Error>) JasonParser.jsonArrayToErrorList(response);
+        final int N = errors.size(); // total number of textviews to add
+
+        final TextView[] myTextViews = new TextView[N]; // create an empty array;
+
+        for (Object object:errors) {
+            Error error=(Error)object;
+            // create a new textview
+            TextView rowTextView = new TextView(this);
+
+            // set some properties of rowTextView or something
+            rowTextView.setText(error.getMessage());
+            rowTextView.setTextColor(Color.RED);
+            // add the textview to the linearlayout
+            ll.addView(rowTextView);
+
+            // save a reference to the textview for later
+            //myTextViews[i] = rowTextView;
+        }
+    };
+
+
+
 
 
 }

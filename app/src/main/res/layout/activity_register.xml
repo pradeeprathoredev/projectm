@@ -12,6 +12,15 @@
         android:layout_marginTop="70dp"
         android:orientation="vertical">
 
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical"
+            android:id="@+id/errorcontainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1">
+
+        </LinearLayout>
+
         <EditText
             android:id="@+id/firstname"
             android:layout_width="match_parent"
@@ -58,6 +67,7 @@
             android:shadowColor="#000000"
             android:text="REGISTER"
             android:textColor="#5b5353"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:onClick="save"/>
     </LinearLayout>
 </RelativeLayout>
